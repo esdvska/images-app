@@ -1,20 +1,39 @@
 // applicationId: "GG4NHIsZTd4-4UfG3Luk0DAOkg7_NyML_bXfsjnfEJ4",
 // secret: "XtS5mIkqYwP9N1X1ZiUoRzL75Z9JhjgS9-sQ_kJfBEo",
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 import { createApi } from "unsplash-js";
+
+import SearchArea from "./components/SearchArea";
+import TextUnderInput from "./components/TextUnderInput";
+
 import "font-awesome/css/font-awesome.min.css";
 
 import "./App.css";
 
 const App = () => {
   const [inputSearchValue, setInputSearchValue] = useState("");
-  const searchPhrase = () => {};
+
+  const [testArray, setTestArray] = useState([]);
+  const searchPhrase = (e) => {
+    setInputSearchValue(e.target.value);
+  };
   const api = createApi({
     accessKey: "GG4NHIsZTd4-4UfG3Luk0DAOkg7_NyML_bXfsjnfEJ4",
   });
-
   const textSearch = "Search free high-resolution photos";
+  useEffect(() => {
+    api.search
+      .getPhotos({ query: "island" })
+      .then((result) => {
+        setTestArray(result.response.results);
+        console.log(result.response);
+      })
+      .catch(() => {
+        console.log("something went wrong!");
+      });
+  }, []);
 
   return (
     <div className="app">
@@ -26,17 +45,21 @@ const App = () => {
               The internet's source of <span>freely-usable images.</span>
               <br></br>Powered by creators everywhere.
             </h4>
-
-            <input
-              type="text"
-              placeholder="   &#xf002;   Search free high-resolution photos"
-              value={inputSearchValue}
-              onChange={searchPhrase}
-            ></input>
-            <p>
-              <strong>Trending: </strong>flower, wallpapers, backgrounds, happy,
-              love
-            </p>
+            <div className="div-input">
+              {" "}
+              &#xf002;
+              <input
+                type="text"
+                placeholder="Search free high-resolution photos"
+                value={inputSearchValue}
+                onChange={searchPhrase}
+              ></input>
+            </div>
+            {inputSearchValue.length > 3 ? (
+              <SearchArea test={testArray} />
+            ) : (
+              <TextUnderInput />
+            )}
           </div>
         </div>
       </main>
