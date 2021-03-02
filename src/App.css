@@ -1,38 +1,60 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app {
+  text-align: left;
+  font-size: 22px;
+  font-family: "Inter", "Rubik", "Arial", sans-serif;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+main {
+  background-image: url("./images/background.jpg");
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.main-div {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(14, 14, 14, 0.4);
 }
-
-.App-link {
-  color: #61dafb;
+.main-wrapper {
+  color: rgb(255, 255, 255);
+  margin: 0 auto;
+  padding-top: 17%;
+  width: 60vw;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-wrapper h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+}
+.main-wrapper h4 {
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin-top: 2%;
+}
+.main-wrapper h4 span {
+  font-weight: 300;
+  text-decoration: underline;
+  text-decoration-thickness: 0.2px;
+}
+.main-wrapper input {
+  width: 100%;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border: none;
+  border-radius: 5px;
+}
+.main-wrapper input {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: rgb(0, 0, 0);
+}
+.main-wrapper p {
+  font-size: 1rem;
 }
