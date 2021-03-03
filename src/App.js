@@ -1,53 +1,26 @@
 // applicationId: "GG4NHIsZTd4-4UfG3Luk0DAOkg7_NyML_bXfsjnfEJ4",
 // secret: "XtS5mIkqYwP9N1X1ZiUoRzL75Z9JhjgS9-sQ_kJfBEo",
 
-import React, { useState, useEffect } from "react";
-
-import { createApi } from "unsplash-js";
-
+import React, { useContext } from "react";
+import AppContext from "./context/AppContext";
 import SearchArea from "./components/SearchArea";
+import SearchResults from "./components/SearchResults";
 import TextUnderInput from "./components/TextUnderInput";
 
 import "font-awesome/css/font-awesome.min.css";
 
 import "./App.css";
-import SearchResults from "./components/SearchResults";
 
 const App = () => {
-  const [inputSearchValue, setInputSearchValue] = useState("");
-  const [testArray, setTestArray] = useState([]);
-  const [searchChange, setSearchChange] = useState(false);
+  const appContext = useContext(AppContext);
+  const {
+    searchChange,
+    testArray,
+    inputSearchValue,
+    searchPhrase,
+    handleEnter,
+  } = appContext;
 
-  const api = createApi({
-    accessKey: "GG4NHIsZTd4-4UfG3Luk0DAOkg7_NyML_bXfsjnfEJ4",
-  });
-
-  const fetchApi = async () => {
-    if (inputSearchValue.length > 3) {
-      api.search
-        .getPhotos({ query: inputSearchValue })
-        .then((result) => {
-          if (result.length !== 0) {
-            setTestArray(result.response.results);
-            console.log(result.response);
-          }
-        })
-        .catch(() => {
-          console.log("something went wrong!");
-        });
-    }
-  };
-
-  useEffect(() => {
-    fetchApi();
-  }, [inputSearchValue]);
-
-  const searchPhrase = (e) => {
-    setInputSearchValue(e.target.value);
-  };
-  const handleEnter = (e) => {
-    if (e.key === "Enter") setSearchChange(true);
-  };
   return (
     <div className="app">
       {searchChange && testArray.length !== 0 ? (

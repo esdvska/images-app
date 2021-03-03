@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import AppContext from "../context/AppContext";
 import "../styles/SearchArea.css";
 
-const SearchArea = ({ test }) => {
-  const testArrayDisplay = test.map((t) => (
+const SearchArea = () => {
+  const appContext = useContext(AppContext);
+  const { testArray } = appContext;
+  const testArrayDisplay = testArray.map((t) => (
     <li key={t.id}>{t.alt_description}</li>
   ));
   return (
