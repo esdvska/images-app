@@ -16,16 +16,15 @@ const App = () => {
   const [inputSearchValue, setInputSearchValue] = useState("");
 
   const [testArray, setTestArray] = useState([]);
-  const searchPhrase = (e) => {
-    setInputSearchValue(e.target.value);
-  };
+
   const api = createApi({
     accessKey: "GG4NHIsZTd4-4UfG3Luk0DAOkg7_NyML_bXfsjnfEJ4",
   });
-  const textSearch = "Search free high-resolution photos";
+
   useEffect(() => {
     api.search
-      .getPhotos({ query: "island" })
+
+      .getPhotos({ query: inputSearchValue })
       .then((result) => {
         setTestArray(result.response.results);
         console.log(result.response);
@@ -33,8 +32,14 @@ const App = () => {
       .catch(() => {
         console.log("something went wrong!");
       });
-  }, []);
+  }, [inputSearchValue]);
 
+  const searchPhrase = (e) => {
+    setInputSearchValue(e.target.value);
+  };
+  const handleEnter = () => {
+    console.log("działąm");
+  };
   return (
     <div className="app">
       <main>
@@ -53,6 +58,7 @@ const App = () => {
                 placeholder="Search free high-resolution photos"
                 value={inputSearchValue}
                 onChange={searchPhrase}
+                onKeyDown={handleEnter}
               ></input>
             </div>
             {inputSearchValue.length > 3 ? (

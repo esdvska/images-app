@@ -1,0 +1,13 @@
+.search-list {
+  border-radius: 5px;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  margin-top: -1.5%;
+  color: rgb(14, 14, 14);
+}
+.search-list ul {
+  list-style: none;
+  font-size: 1.1rem;
+  line-height: 2rem;
+}
