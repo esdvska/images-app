@@ -5,12 +5,28 @@ import "../styles/SearchArea.css";
 const SearchArea = () => {
   const appContext = useContext(AppContext);
   const { testArray } = appContext;
-  const testArrayDisplay = testArray.map((t) => (
-    <li key={t.id}>{t.alt_description}</li>
-  ));
+  let tagsPushDisplay = [];
+  let repeatArray = [];
+  const tagsPush = [];
+  const testArrayTags = testArray.map((t) => {
+    return t.tags;
+  });
+  testArrayTags.forEach((e) => {
+    e.forEach((x) => tagsPush.push(x.title));
+  });
+
+  for (let i = 0; i < tagsPush.length; i++) {
+    if (tagsPushDisplay.includes(tagsPush[i])) {
+      repeatArray.push(tagsPush[i]);
+    } else {
+      tagsPushDisplay.push(tagsPush[i]);
+    }
+  }
+
+  const tagsDisplay = tagsPushDisplay.map((e) => <li key={e}>{e}</li>);
   return (
     <div className="search-list">
-      <ul>{testArrayDisplay}</ul>
+      <ul>{tagsDisplay.slice(0, 6)}</ul>
     </div>
   );
 };

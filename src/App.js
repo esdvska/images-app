@@ -46,7 +46,7 @@ const App = () => {
                 ></input>
               </div>
               {inputSearchValue.length > 3 ? (
-                <SearchArea test={testArray} />
+                <SearchArea />
               ) : (
                 <TextUnderInput />
               )}
