@@ -5,8 +5,9 @@
 }
 
 .app {
+  overflow: hidden;
   text-align: left;
-  font-size: 22px;
+  font-size: 42px;
   font-family: "Inter", "Rubik", "Arial", sans-serif;
 }
 main {

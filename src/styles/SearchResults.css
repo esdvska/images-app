@@ -19,16 +19,42 @@
   height: 200vh;
   background-color: rgb(0, 0, 0, 0.6);
 }
-.image-gallery div {
+.img-full {
+  position: relative;
   background-color: white;
   width: 80%;
   height: 48%;
   margin: 0px auto;
   border-radius: 5px;
-  top: 20px;
+  top: 30px;
   text-align: center;
 }
-.image-gallery div img {
-  height: 160%;
-  margin-top: 8%;
+.img-full img {
+  height: 80vh;
+}
+.img-full p {
+  font-size: 14px;
+  text-align: left;
+}
+
+.prev {
+  position: relative;
+  top: 44vh;
+  left: -880px;
+}
+.next {
+  position: relative;
+  bottom: 40vh;
+  right: -880px;
+}
+.p-up {
+  position: relative;
+  left: 10px;
+  top: 10px;
+}
+
+.p-down {
+  position: relative;
+  left: 10px;
+  bottom: 20px;
 }
