@@ -4,7 +4,12 @@ import "../styles/SearchArea.css";
 
 const SearchArea = () => {
   const appContext = useContext(AppContext);
-  const { testArray } = appContext;
+  const {
+    testArray,
+    setInputSearchValue,
+    setSearchChange,
+    inputSearchValue,
+  } = appContext;
   let tagsPushDisplay = [];
   let repeatArray = [];
   const tagsPush = [];
@@ -22,11 +27,23 @@ const SearchArea = () => {
       tagsPushDisplay.push(tagsPush[i]);
     }
   }
-
-  const tagsDisplay = tagsPushDisplay.map((e) => <li key={e}>{e}</li>);
+  const handleSearchTags = (e) => {
+    setInputSearchValue(e);
+    setSearchChange(true);
+  };
+  const tagsDisplay = tagsPushDisplay.slice(0, 6).map((e) => (
+    <li
+      key={e}
+      onClick={() => {
+        handleSearchTags(e);
+      }}
+    >
+      {e}
+    </li>
+  ));
   return (
     <div className="search-list">
-      <ul>{tagsDisplay.slice(0, 6)}</ul>
+      <ul>{tagsDisplay}</ul>
     </div>
   );
 };

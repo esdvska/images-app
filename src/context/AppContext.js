@@ -45,6 +45,8 @@ export const AppProvider = (props) => {
         fetchApi,
         searchPhrase,
         handleEnter,
+        setInputSearchValue,
+        setSearchChange,
       }}
     >
       {props.children}

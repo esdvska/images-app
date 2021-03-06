@@ -11,6 +11,8 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",
+    "react-images": "^1.2.0-beta.6",
+    "react-photo-gallery": "^8.0.0",
     "react-scripts": "4.0.3",
     "reactstrap": "^8.9.0",
     "unsplash-js": "^7.0.4",

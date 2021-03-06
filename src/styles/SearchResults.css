@@ -1,13 +1,4 @@
 .image-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  /* align-items: stretch; */
-  align-content: stretch;
-}
-.image-container div {
-  align-self: baseline;
-  flex-basis: 0;
-  flex-shrink: 3;
+  max-width: 90vw;
+  margin: 0 auto;
 }
