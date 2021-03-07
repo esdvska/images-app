@@ -34,7 +34,8 @@ const App = () => {
                 The internet's source of <span>freely-usable images.</span>
                 <br></br>Powered by creators everywhere.
               </h4>
-              <div className="div-input">
+              <InputSearch />
+              {/* <div className="div-input">
                 {" "}
                 &#xf002;
                 <input
@@ -44,7 +45,7 @@ const App = () => {
                   onChange={searchPhrase}
                   onKeyDown={handleEnter}
                 ></input>
-              </div>
+              </div> */}
               {inputSearchValue.length > 3 ? (
                 <SearchArea />
               ) : (
