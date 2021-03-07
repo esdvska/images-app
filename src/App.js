@@ -6,6 +6,7 @@ import AppContext from "./context/AppContext";
 import SearchArea from "./components/SearchArea";
 import SearchResults from "./components/SearchResults";
 import TextUnderInput from "./components/TextUnderInput";
+import InputSearch from "./components/InputSearch";
 
 import "font-awesome/css/font-awesome.min.css";
 

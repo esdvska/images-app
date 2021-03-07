@@ -4,6 +4,7 @@ import { FcNext, FcPrevious } from "react-icons/fc";
 import AppContext from "../context/AppContext";
 
 import "../styles/SearchResults.css";
+
 const ImageGallery = ({ index }) => {
   const appContext = useContext(AppContext);
   const { testArray } = appContext;
@@ -15,6 +16,7 @@ const ImageGallery = ({ index }) => {
       setIndexNumber(0);
     }
   };
+  let url = testArray[indexNumber].urls.small;
 
   const handleGalleryPrev = () => {
     if (indexNumber > 0) {
@@ -53,8 +55,8 @@ const ImageGallery = ({ index }) => {
       break;
     }
     case "07": {
-      break;
       monthDisplay = "July";
+      break;
     }
     case "08": {
       monthDisplay = "August";
@@ -96,7 +98,7 @@ const ImageGallery = ({ index }) => {
           <p>
             {monthDisplay} {testArray[indexNumber].created_at.slice(0, 4)}
           </p>
-          <p>Location:</p>
+          <p>Location:{testArray[indexNumber].links.download_location}</p>
         </div>
       </div>
     </div>

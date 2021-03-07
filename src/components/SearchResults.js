@@ -2,6 +2,7 @@ import React, { useContext, useState, useCallback } from "react";
 
 import AppContext from "../context/AppContext";
 import ImageGallery from "./ImageGallery";
+import InputSearchResult from "./InputSearchResult";
 import "../styles/SearchResults.css";
 
 const SearchResults = () => {
@@ -28,6 +29,10 @@ const SearchResults = () => {
   return (
     <>
       <div className="image-container">
+        <div className="input-search-result">
+          <InputSearchResult />
+        </div>
+
         <h1>{inputSearchValue}</h1>
         <div className="grid-display">{displaySearch}</div>
       </div>
