@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import { createApi } from "unsplash-js";
 
 const AppContext = React.createContext();
@@ -9,6 +10,8 @@ export const AppProvider = (props) => {
   const [inputSearchValue, setInputSearchValue] = useState("");
   const [testArray, setTestArray] = useState([]);
   const [searchChange, setSearchChange] = useState(false);
+  const [imageView, setImageView] = useState(false);
+  const [imageIndex, setImageIndex] = useState("");
 
   const fetchApi = async () => {
     if (inputSearchValue.length > 3) {
@@ -36,6 +39,14 @@ export const AppProvider = (props) => {
   const handleEnter = (e) => {
     if (e.key === "Enter") setSearchChange(true);
   };
+  const handleImageClick = (index) => {
+    setImageView((prev) => !prev);
+    setImageIndex(index);
+  };
+  const handleBack = () => {
+    setSearchChange(false);
+    testArray.length = 0;
+  };
   return (
     <AppContext.Provider
       value={{
@@ -47,6 +58,12 @@ export const AppProvider = (props) => {
         handleEnter,
         setInputSearchValue,
         setSearchChange,
+        handleImageClick,
+        handleBack,
+        imageView,
+        imageIndex,
+        redirect,
+        history,
       }}
     >
       {props.children}
