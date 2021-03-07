@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
 import { useState } from "react";
-import { FcNext, FcPrevious } from "react-icons/fc";
+
+import { VscClose, VscChevronLeft, VscChevronRight } from "react-icons/vsc";
 import AppContext from "../context/AppContext";
 
 import "../styles/SearchResults.css";
 
 const ImageGallery = ({ index }) => {
   const appContext = useContext(AppContext);
-  const { testArray } = appContext;
+  const { testArray, handleImageClick } = appContext;
   const [indexNumber, setIndexNumber] = useState(index);
   const handleGalleryNext = () => {
     if (indexNumber < testArray.length - 1) {
@@ -25,6 +26,9 @@ const ImageGallery = ({ index }) => {
       setIndexNumber(testArray.length - 1);
     }
   };
+  // const handleCloseView = () => {
+  //   setImageView((prev) => !prev);
+  // };
 
   const month = testArray[indexNumber].created_at.slice(5, 7);
   let monthDisplay = "";
@@ -78,27 +82,32 @@ const ImageGallery = ({ index }) => {
       monthDisplay = "December";
       break;
     }
+    default: {
+      monthDisplay = "";
+      break;
+    }
   }
 
   return (
     <div className="image-gallery">
+      <VscClose id="close" onClick={handleImageClick} />
       <div className="img-full">
         <p className="p-up">{testArray[index].user.name}</p>
         <div className="prev" onClick={handleGalleryPrev}>
-          <FcPrevious />
+          <VscChevronLeft id="arrow" />
         </div>
         <img
           src={testArray[indexNumber].urls.regular}
           alt={testArray[indexNumber].alt_description}
         ></img>
         <div className="next" onClick={handleGalleryNext}>
-          <FcNext />
+          <VscChevronRight id="arrow" />
         </div>
         <div className="p-down">
           <p>
-            {monthDisplay} {testArray[indexNumber].created_at.slice(0, 4)}
+            {monthDisplay} {testArray[indexNumber].created_at.slice(0, 4)} -
+            Location: {testArray[indexNumber].user.location}
           </p>
-          <p>Location:{testArray[indexNumber].links.download_location}</p>
         </div>
       </div>
     </div>

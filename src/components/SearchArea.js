@@ -42,9 +42,15 @@ const SearchArea = () => {
     </li>
   ));
   return (
-    <div className="search-list">
-      <ul>{tagsDisplay}</ul>
-    </div>
+    <>
+      {testArrayTags.length ? (
+        <div className="search-list">
+          <ul>{tagsDisplay}</ul>
+        </div>
+      ) : (
+        <p>Results not found.</p>
+      )}
+    </>
   );
 };
 export default SearchArea;

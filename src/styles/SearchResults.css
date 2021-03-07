@@ -1,23 +1,38 @@
 .image-container {
-  max-width: 90vw;
+  width: 90vw;
   left: 5vw;
   position: absolute;
 }
-
+.image-container h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
 .grid-display {
   column-count: 4;
 }
 
-.grid-display button {
-  margin-bottom: 1em;
+.grid-display img {
+  margin-bottom: 0.8em;
 }
 .image-gallery {
   position: relative;
+
   top: 0;
   left: 0;
   width: 100vw;
-  height: 200vh;
+  min-height: 300vh;
   background-color: rgb(0, 0, 0, 0.6);
+}
+#close {
+  position: relative;
+  cursor: pointer;
+  left: 8px;
+  top: 8px;
+  color: rgb(165, 165, 165);
+  font-size: 2.4rem;
+}
+#arrow {
+  color: rgb(165, 165, 165);
 }
 .img-full {
   position: relative;
@@ -26,7 +41,7 @@
   height: 48%;
   margin: 0px auto;
   border-radius: 5px;
-  top: 30px;
+  /* top: 30px; */
   text-align: center;
 }
 .img-full img {
@@ -88,6 +103,7 @@
   font-size: 1rem;
   font-weight: 500;
   color: rgb(78, 78, 78);
+  outline: 0;
 }
 .div-input-search p {
   display: inline;

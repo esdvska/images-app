@@ -43,10 +43,7 @@ export const AppProvider = (props) => {
     setImageView((prev) => !prev);
     setImageIndex(index);
   };
-  const handleBack = () => {
-    setSearchChange(false);
-    testArray.length = 0;
-  };
+
   return (
     <AppContext.Provider
       value={{
@@ -59,11 +56,9 @@ export const AppProvider = (props) => {
         setInputSearchValue,
         setSearchChange,
         handleImageClick,
-        handleBack,
+
         imageView,
         imageIndex,
-        redirect,
-        history,
       }}
     >
       {props.children}

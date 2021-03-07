@@ -1,4 +1,4 @@
-import React, { useContext, useState, useCallback } from "react";
+import React, { useContext } from "react";
 
 import AppContext from "../context/AppContext";
 import ImageGallery from "./ImageGallery";
@@ -7,13 +7,14 @@ import "../styles/SearchResults.css";
 
 const SearchResults = () => {
   const appContext = useContext(AppContext);
-  const { testArray, inputSearchValue } = appContext;
-  const [imageView, setImageView] = useState(false);
-  const [imageIndex, setImageIndex] = useState("");
-  const handleImageClick = (index) => {
-    setImageView((prev) => !prev);
-    setImageIndex(index);
-  };
+  const {
+    testArray,
+    inputSearchValue,
+    handleImageClick,
+    imageIndex,
+    imageView,
+  } = appContext;
+
   const displaySearch = testArray.map((search, index) => (
     <div key={search.id}>
       <img
@@ -22,9 +23,11 @@ const SearchResults = () => {
           handleImageClick(index);
         }}
       />
-      <button>tag</button>
     </div>
   ));
+  const inputSearchDisplay = `${inputSearchValue
+    .slice(0, 1)
+    .toUpperCase()}${inputSearchValue.slice(1).toLowerCase()}`;
 
   return (
     <>
@@ -33,8 +36,10 @@ const SearchResults = () => {
           <InputSearchResult />
         </div>
 
-        <h1>{inputSearchValue}</h1>
-        <div className="grid-display">{displaySearch}</div>
+        <h1>{inputSearchDisplay}</h1>
+        <div className="grid-display">
+          {inputSearchValue ? displaySearch : null}
+        </div>
       </div>
       {imageView ? (
         <div className="image-gallery">
