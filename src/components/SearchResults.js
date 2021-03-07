@@ -1,9 +1,25 @@
 import React, { useContext } from "react";
 
 import AppContext from "../context/AppContext";
+
+import { useHistory } from "react-router-dom";
 import ImageGallery from "./ImageGallery";
+
 import InputSearchResult from "./InputSearchResult";
 import "../styles/SearchResults.css";
+
+function HomeButton() {
+  let history = useHistory();
+
+  function handleClick() {
+    history.push("/");
+  }
+  return (
+    <button type="button" onClick={handleClick}>
+      Go home
+    </button>
+  );
+}
 
 const SearchResults = () => {
   const appContext = useContext(AppContext);
