@@ -19,7 +19,7 @@ const Home = () => {
   return (
     <>
       {searchChange && testArray.length !== 0 ? (
-        <Redirect push to={{ pathname: "/results" }} />
+        <Redirect push to={{ pathname: "/images-app/results" }} />
       ) : (
         <main>
           <div className="main-div">
